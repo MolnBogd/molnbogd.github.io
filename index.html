@@ -13,6 +13,8 @@
             margin: 0;
             padding: 20px;
             overflow: hidden; /* Prevents scrolling when button moves */
+            position: relative;
+            height: 100vh; /* Full screen height */
         }
         h1 {
             font-size: 2.5em;
@@ -91,21 +93,24 @@
     }
 
     function loveConfirmed() {
-        document.getElementById("response").innerText = "asd️";
+        document.getElementById("response").innerText = "Yay, love u too! ❤️";
     }
 
     function moveNoButton(event) {
-        if (event) event.preventDefault(); // Prevent accidental clicks on mobile
+        if (event) event.preventDefault(); // Prevent accidental taps on mobile
 
         let noButton = document.getElementById("no-button");
         let buttonWidth = noButton.offsetWidth;
         let buttonHeight = noButton.offsetHeight;
 
-        let maxX = window.innerWidth - buttonWidth - 10; // Ensure button stays inside screen width
-        let maxY = window.innerHeight - buttonHeight - 10; // Ensure button stays inside screen height
+        let maxX = window.innerWidth - buttonWidth - 20; // 20px padding from screen edges
+        let maxY = window.innerHeight - buttonHeight - 20;
 
-        let x = Math.random() * maxX;
-        let y = Math.random() * maxY;
+        let minX = 20; // Keep 20px inside the left boundary
+        let minY = 20; // Keep 20px inside the top boundary
+
+        let x = Math.random() * (maxX - minX) + minX;
+        let y = Math.random() * (maxY - minY) + minY;
 
         noButton.style.left = `${x}px`;
         noButton.style.top = `${y}px`;
