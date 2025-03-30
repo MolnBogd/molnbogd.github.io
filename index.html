@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>for iasmi❤️</title>
+    <title>test 1️</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -41,7 +41,7 @@
         }
         .yes, .no {
             font-size: 1.5em;
-            padding: 11px 20px;
+            padding: 10px 20px;
             margin: 10px;
             cursor: pointer;
             border-radius: 10px;
@@ -61,39 +61,39 @@
 </head>
 <body>
 
-    <div id="main-page">
-        <h1>💖 this is for you ml 💖</h1>
-        <p>esti cea mai superba si minunata fata pe care am putut sa o cunosc. te iubesc. 💕</p>
-        <button class="love-button" onclick="showLovePage()">apasa pentru o surpriza :) </button>
+<div id="main-page">
+    <h1>test</h1>
+    <p>ads</p>
+    <button class="love-button" onclick="showLovePage()">click</button>
+</div>
+
+<div id="love-page">
+    <h1>y/n</h1>
+    <div class="buttons">
+        <button class="yes" onclick="loveConfirmed()">Yes</button>
+        <button class="no" id="no-button" onmouseover="moveNoButton()">No</button>
     </div>
+    <h2 id="response"></h2>
+</div>
 
-    <div id="love-page">
-        <h1>ma mai iubesti? 😝</h1>
-        <div class="buttons">
-            <button class="yes" onclick="loveConfirmed()">daaaaa</button>
-            <button class="no" id="no-button" onmouseover="moveNoButton()">nu😔</button>
-        </div>
-        <h2 id="response"></h2>
-    </div>
+<script>
+    function showLovePage() {
+        document.getElementById("main-page").style.display = "none";
+        document.getElementById("love-page").style.display = "block";
+    }
 
-    <script>
-        function showLovePage() {
-            document.getElementById("main-page").style.display = "none";
-            document.getElementById("love-page").style.display = "block";
-        }
+    function loveConfirmed() {
+        document.getElementById("response").innerText = "asd️";
+    }
 
-        function loveConfirmed() {
-            document.getElementById("response").innerText = "yaaay!!!! si eu te iubesc enorm ❤️";
-        }
-
-        function moveNoButton() {
-            let noButton = document.getElementById("no-button");
-            let x = Math.random() * (window.innerWidth - 100);
-            let y = Math.random() * (window.innerHeight - 100);
-            noButton.style.left = `${x}px`;
-            noButton.style.top = `${y}px`;
-        }
-    </script>
+    function moveNoButton() {
+        let noButton = document.getElementById("no-button");
+        let x = Math.random() * (window.innerWidth - 100);
+        let y = Math.random() * (window.innerHeight - 100);
+        noButton.style.left = `${x}px`;
+        noButton.style.top = `${y}px`;
+    }
+</script>
 
 </body>
 </html>
