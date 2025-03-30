@@ -98,8 +98,11 @@
         if (event) event.preventDefault(); // Prevent accidental clicks on mobile
 
         let noButton = document.getElementById("no-button");
-        let maxX = window.innerWidth - noButton.offsetWidth;
-        let maxY = window.innerHeight - noButton.offsetHeight;
+        let buttonWidth = noButton.offsetWidth;
+        let buttonHeight = noButton.offsetHeight;
+
+        let maxX = window.innerWidth - buttonWidth - 10; // Ensure button stays inside screen width
+        let maxY = window.innerHeight - buttonHeight - 10; // Ensure button stays inside screen height
 
         let x = Math.random() * maxX;
         let y = Math.random() * maxY;
