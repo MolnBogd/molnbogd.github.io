@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for iasmi❤️</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ffe6f2;
+            color: #ff4081;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 2.5em;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .love-button {
+            background-color: #ff4081;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+        .love-button:hover {
+            background-color: #e60073;
+            transform: scale(1.1);
+        }
+        #love-page {
+            display: none;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        .yes, .no {
+            font-size: 1.5em;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 10px;
+            border: none;
+            transition: 0.3s;
+        }
+        .yes {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .no {
+            background-color: #f44336;
+            color: white;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="main-page">
+        <h1>💖 this is for you ml 💖</h1>
+        <p>esti cea mai superba si minunata fata pe care am putut sa o cunosc. te iubesc. 💕</p>
+        <button class="love-button" onclick="showLovePage()">apasa pentru o surpriza :) </button>
+    </div>
+
+    <div id="love-page">
+        <h1>ma mai iubesti? 😝</h1>
+        <div class="buttons">
+            <button class="yes" onclick="loveConfirmed()">daaaaa</button>
+            <button class="no" id="no-button" onmouseover="moveNoButton()">nu😔</button>
+        </div>
+        <h2 id="response"></h2>
+    </div>
+
+    <script>
+        function showLovePage() {
+            document.getElementById("main-page").style.display = "none";
+            document.getElementById("love-page").style.display = "block";
+        }
+
+        function loveConfirmed() {
+            document.getElementById("response").innerText = "yaaay!!!! si eu te iubesc enorm ❤️";
+        }
+
+        function moveNoButton() {
+            let noButton = document.getElementById("no-button");
+            let x = Math.random() * (window.innerWidth - 100);
+            let y = Math.random() * (window.innerHeight - 100);
+            noButton.style.left = `${x}px`;
+            noButton.style.top = `${y}px`;
+        }
+    </script>
+
+</body>
+</html>
