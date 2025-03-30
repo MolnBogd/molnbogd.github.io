@@ -12,6 +12,7 @@
             color: #ff4081;
             margin: 0;
             padding: 20px;
+            overflow: hidden; /* Prevents scrolling when button moves */
         }
         h1 {
             font-size: 2.5em;
@@ -38,6 +39,8 @@
         }
         .buttons {
             margin-top: 20px;
+            position: relative;
+            height: 300px; /* Ensures buttons have space to move */
         }
         .yes, .no {
             font-size: 1.5em;
@@ -47,15 +50,20 @@
             border-radius: 10px;
             border: none;
             transition: 0.3s;
+            position: absolute;
         }
         .yes {
             background-color: #4CAF50;
             color: white;
+            left: 50%;
+            transform: translateX(-50%);
         }
         .no {
             background-color: #f44336;
             color: white;
-            position: absolute;
+            left: 50%;
+            top: 50px;
+            transform: translateX(-50%);
         }
     </style>
 </head>
@@ -71,7 +79,7 @@
     <h1>y/n</h1>
     <div class="buttons">
         <button class="yes" onclick="loveConfirmed()">Yes</button>
-        <button class="no" id="no-button" onmouseover="moveNoButton()">No</button>
+        <button class="no" id="no-button" onmouseover="moveNoButton()" ontouchstart="moveNoButton(event)">No</button>
     </div>
     <h2 id="response"></h2>
 </div>
@@ -86,10 +94,16 @@
         document.getElementById("response").innerText = "asd️";
     }
 
-    function moveNoButton() {
+    function moveNoButton(event) {
+        if (event) event.preventDefault(); // Prevent accidental clicks on mobile
+
         let noButton = document.getElementById("no-button");
-        let x = Math.random() * (window.innerWidth - 100);
-        let y = Math.random() * (window.innerHeight - 100);
+        let maxX = window.innerWidth - noButton.offsetWidth;
+        let maxY = window.innerHeight - noButton.offsetHeight;
+
+        let x = Math.random() * maxX;
+        let y = Math.random() * maxY;
+
         noButton.style.left = `${x}px`;
         noButton.style.top = `${y}px`;
     }
